@@ -6,7 +6,7 @@ from internutopia.core.config import Config
 from internutopia.core.task_config_manager.base import create_task_config_manager
 from internutopia.core.util import log
 
-
+ 
 class Env(gym.Env):
     """
     Gym Env for a single environment with a single learning agent.

@@ -40,7 +40,8 @@ class Config(BaseModel):
     env_offset_size: Optional[float] = 5.0
     metrics_save_path: Optional[str] = 'console'
     task_configs: List[TaskCfg]
-    sence_path: Optional[str] = None
+    env_yaml_path: Optional[str] = None
+
 
     def distribute(self, distribution_config: DistributionCfg):
         distributed_config = DistributedConfig(

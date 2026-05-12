@@ -12,18 +12,15 @@ headless = False
 if not has_display():
     headless = True
 
- 
-
-from your_package.configs.tasks.yaml_scene_task import YamlSceneTaskCfg
 
 config = Config(
     simulator=SimConfig(physics_dt=1 / 240, rendering_dt=1 / 240, use_fabric=False, headless=headless, webrtc=headless),
+    sence_path = "/home/zwc/lhd_Navigation/internutopia_extension/configs/scenes/t1.yaml",
     task_configs=[
-        YamlSceneTaskCfg(
-            scene_yaml_path='/path/to/collect_object.yaml',  # ← 只需要这一个
+        SingleInferenceTaskCfg(
             robots=[
                 G1RobotCfg(
-                    position=(0.0, 0.0, 0.8),  # 或从yaml的tasks.settings里读
+                    position=(0.0, 0.0, 0.8),
                     controllers=[move_by_speed_cfg],
                 )
             ],

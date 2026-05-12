@@ -34,7 +34,7 @@ class ControllerCfg(BaseCfg, extra='allow'):
     type: str
     sub_controllers: Optional[List['ControllerCfg']] = None
 
-
+ 
 class RobotCfg(BaseCfg):
     """
     Represents a robot configuration with customizable attributes and optional components like controllers and sensors.
