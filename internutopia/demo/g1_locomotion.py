@@ -15,9 +15,9 @@ if not has_display():
 
 config = Config(
     simulator=SimConfig(physics_dt=1 / 240, rendering_dt=1 / 240, use_fabric=False, headless=headless, webrtc=headless),
+    sence_path = "/home/zwc/lhd_Navigation/internutopia_extension/configs/scenes/t1.yaml",
     task_configs=[
         SingleInferenceTaskCfg(
-            scene_asset_path=gm.ASSET_PATH + '/scenes/empty.usd',
             robots=[
                 G1RobotCfg(
                     position=(0.0, 0.0, 0.8),

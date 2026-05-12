@@ -7,6 +7,8 @@ from internutopia.core.config.distribution import DistributionCfg
 from internutopia.core.config.object import ObjectCfg
 from internutopia.core.config.robot import RobotCfg
 from internutopia.core.config.task import TaskCfg
+from internutopia.core.util import log
+import yaml
 
 
 class Simulator(Enum):
@@ -25,6 +27,7 @@ class SimConfig(BaseModel):
     headless: Optional[bool] = True
     webrtc: Optional[bool] = False
     native: Annotated[Optional[bool], Field(deprecated='Deprecated for isaacsim ≥ 4.5.0')] = False
+    
 
 
 class Config(BaseModel):
@@ -37,6 +40,7 @@ class Config(BaseModel):
     env_offset_size: Optional[float] = 5.0
     metrics_save_path: Optional[str] = 'console'
     task_configs: List[TaskCfg]
+    sence_path: Optional[str] = None
 
     def distribute(self, distribution_config: DistributionCfg):
         distributed_config = DistributedConfig(
@@ -48,6 +52,8 @@ class Config(BaseModel):
             distribution_config=distribution_config,
         )
         return distributed_config
+    
+
 
 
 class DistributedConfig(Config):
